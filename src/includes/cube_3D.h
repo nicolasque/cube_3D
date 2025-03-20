@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/20 21:13:03 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/20 21:28:31 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,17 @@
 # include <termios.h>
 # include <unistd.h>
 
+typedef struct s_args
+{
+	char *file_name;
+	int fd_file;
+
+	char **content;
+}	t_args;
+
 
 // PARSEO
+int	ft_get_file_data(int argc, char **argv, t_args *t_args);
 
 
 // PRINTS

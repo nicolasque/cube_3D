@@ -20,6 +20,8 @@ FREE_SRCS = \
 
 UTILS_SRCS = \
 		$(UTILS_DIR)/prints.c \
+		$(UTILS_DIR)/ft_join_clean.c \
+
 
 MAIN_SRCS = main.c
 

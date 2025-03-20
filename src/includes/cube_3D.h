@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/20 21:28:31 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/20 22:01:01 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 # include <termios.h>
 # include <unistd.h>
 
+# define FAIL 2
+
 typedef struct s_args
 {
 	char *file_name;
@@ -43,6 +45,12 @@ int	ft_get_file_data(int argc, char **argv, t_args *t_args);
 
 // PRINTS
 void ft_print_map(char *str);
+
+
+// UTILS
+char	*ft_strjoin_clean_s1(char *s1, char *s2);
+char	*ft_strjoin_clean_s2(char *s1, char *s2);
+char	*ft_strjoin_clean_s1_s2(char *s1, char *s2);
 
 
 #endif // CUBE_3D_H

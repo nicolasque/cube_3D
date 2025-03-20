@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 19:19:00 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/03 22:30:32 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/20 22:03:06 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "get_next_line.h"
 
 typedef struct s_list
 {
@@ -77,5 +78,6 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 int					ft_printf(char const *str, ...);
 char				**ft_free_split(char **result, int i);
 long				ft_atol(const char *str);
+void				ft_memdel(void *ptr);
 
 #endif // LIBFT_H

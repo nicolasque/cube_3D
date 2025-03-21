@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 02:04:12 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/21 02:50:13 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/21 02:56:09 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,19 @@ static int ft_get_color_nbr(char *color_code_str, int color_code[3])
 			if (ft_isdigit(spliteado[i][j]))
 			{
 				color_code[i] = ft_atoi(((spliteado[i])) + j);
-				
+				// TODO VERIFICAR QUE EL NUMERO NO ES MAYOR DE 255
 				break;
 			}
 			j ++;
 		}
 		i ++;
 	}
-	printf("Numero: %d\n",color_code[0]);
-	printf("Numero: %d\n",color_code[1]);
-	printf("Numero: %d\n",color_code[2]);
+	ft_free_split(spliteado, i);
 	return (0);
 }
 
+
+//Esta funcion ya es llamada dos veces, una para techo y otra para suelo
 int	ft_get_color_code(t_args *t_args, const char *code)
 {
 	char	*color_code_str;

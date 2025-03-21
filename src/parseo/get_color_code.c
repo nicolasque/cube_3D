@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 02:04:12 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/21 02:40:02 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/21 02:50:13 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,21 @@
 static int	ft_check_color_code(char *color_str, const char *code)
 {
 	int	i;
+	int comma_count;
 
 	i = 0;
+	comma_count = 0;
 	while (color_str[i])
 	{
+		if (color_str[i] == ',')
+			comma_count ++;
 		if (color_str[i] != code[0] && color_str[i] != ' '
 			&& color_str[i] != ',' && !ft_isdigit(color_str[i]))
-				return (FAIL);
+				return (printf("%sInvalid color code (invalid characters)\n%s", RED, RESET), FAIL);
 		i++;
 	}
+	if (comma_count != 2)
+		return (printf("%sInvalid color code.\n%s", RED, RESET),FAIL);
 	return (0);
 }
 
@@ -43,6 +49,7 @@ static int ft_get_color_nbr(char *color_code_str, int color_code[3])
 			if (ft_isdigit(spliteado[i][j]))
 			{
 				color_code[i] = ft_atoi(((spliteado[i])) + j);
+				
 				break;
 			}
 			j ++;

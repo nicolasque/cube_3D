@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 18:23:16 by nquecedo          #+#    #+#             */
-/*   Updated: 2024/12/12 17:23:11 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/21 01:46:24 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_strdup(const char *str)
 	int		i;
 
 	i = 0;
+	if (!str)
+		return (NULL);
 	new_str = (char *)malloc(ft_strlen(str) + 1);
 	if (new_str == NULL)
 		return (NULL);

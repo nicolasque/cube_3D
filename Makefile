@@ -2,7 +2,7 @@
 #                                   Makefile                                   #
 # **************************************************************************** #
 
-NAME        = cube_3d
+NAME        = cub3d
 CC          = gcc
 CFLAGS      = -Wall -Wextra -Werror -I./src/includes
 LDFLAGS     = -lreadline

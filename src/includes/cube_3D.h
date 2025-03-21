@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/20 22:01:01 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/21 01:25:24 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # include <sys/wait.h>
 # include <termios.h>
 # include <unistd.h>
+# include <math.h>
 
 # define FAIL 2
 
@@ -36,11 +37,15 @@ typedef struct s_args
 	int fd_file;
 
 	char **content;
+
+	int flor_color[3];
+	int cealing_color[3];
 }	t_args;
 
 
 // PARSEO
 int	ft_get_file_data(int argc, char **argv, t_args *t_args);
+int	ft_get_data(t_args *t_args);
 
 
 // PRINTS

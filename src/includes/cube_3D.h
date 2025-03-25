@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/25 19:57:26 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/25 22:55:48 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ typedef struct s_args
 
 	int		flor_color[3];
 	int		cealing_color[3];
+
+	char	*no_path;
+	char	*so_path;
+	char	*we_path;
+	char	*ea_path;
 }			t_args;
 
 // PARSEO

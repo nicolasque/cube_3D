@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_data.c                                         :+:      :+:    :+:   */
+/*   get_textures.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/21 01:23:00 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/25 19:53:24 by nquecedo         ###   ########.fr       */
+/*   Created: 2025/03/25 19:53:44 by nquecedo          #+#    #+#             */
+/*   Updated: 2025/03/25 20:25:02 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube_3D.h"
 
-int	ft_get_data(t_args *t_args)
+static int ft_get_path(t_args *t_args, char *coede)
 {
-	if (ft_get_color_code(t_args, t_args->flor_color, "F ")
-		|| ft_get_color_code(t_args, t_args->cealing_color, "C "))
-		return (FAIL);
-	if (ft_get_textures(t_args))
-		return (printf("%sTexture error %s", RED, RESET), FAIL);
 	
-	return (0);
+}
+
+int ft_get_textures(t_args *t_args)
+{
+	
+
 }

@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/24 17:16:07 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/25 19:57:26 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int			ft_get_file_data(int argc, char **argv, t_args *t_args);
 int			ft_get_data(t_args *t_args);
 int			ft_get_color_code(t_args *t_args, int color_code[3],
 				const char *code);
+int			ft_get_textures(t_args *t_args);
 
 // PRINTS
 void		ft_print_map(char *str);

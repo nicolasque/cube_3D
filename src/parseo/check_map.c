@@ -6,13 +6,13 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 23:40:18 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/27 23:46:36 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/27 23:49:11 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube_3D.h"
 
-char **ft_copy_map(t_args *t_args)
+static char **ft_copy_map(t_args *t_args)
 {
 	int i;
 	char **map_cpy;
@@ -32,6 +32,8 @@ int ft_check_map(t_args *t_args)
 {
 	char **map_cpy;
 
+
+	printf("\n===================\n\n");
 	map_cpy = ft_copy_map(t_args);
 	for (int i = 0; map_cpy[i]; i++)
 		printf("COPY: %s\n", map_cpy[i]);

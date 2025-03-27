@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/25 22:55:48 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/27 19:03:18 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ typedef struct s_args
 	char	*so_path;
 	char	*we_path;
 	char	*ea_path;
+
+	char **map;
+	int	heig;
 }			t_args;
 
 // PARSEO

@@ -19,6 +19,7 @@ PARSEO_SRCS = \
 		$(PARSEO_DIR)/get_color_code.c \
 		$(PARSEO_DIR)/get_textures.c \
 		$(PARSEO_DIR)/get_map.c \
+		$(PARSEO_DIR)/check_map.c \
 
 
 

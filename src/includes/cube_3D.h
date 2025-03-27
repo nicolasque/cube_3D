@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/27 23:11:09 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/27 23:47:28 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ typedef struct s_args
 	char	*we_path;
 	char	*ea_path;
 
-	char **map;
-	int	heig;
+	char	**map;
+	int		heig;
 }			t_args;
 
 // PARSEO
@@ -55,8 +55,8 @@ int			ft_get_data(t_args *t_args);
 int			ft_get_color_code(t_args *t_args, int color_code[3],
 				const char *code);
 int			ft_get_textures(t_args *t_args);
-int	ft_get_map(t_args *t_args);
-
+int			ft_get_map(t_args *t_args);
+int			ft_check_map(t_args *t_args);
 
 // PRINTS
 void		ft_print_map(char *str);

@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/28 05:47:21 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/28 18:11:06 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ typedef struct s_args
 	char	*we_path;
 	char	*ea_path;
 
-	char	**map;
+	char *map[MAX_MAP];
+	char *map_cpy[MAX_MAP];
+
 	int		heig;
 }			t_args;
 

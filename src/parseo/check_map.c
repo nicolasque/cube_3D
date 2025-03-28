@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 23:40:18 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/28 05:01:57 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/28 18:34:35 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,32 +59,35 @@ static int	ft_check_map_chars(char **map)
 	return (0);
 }
 
-static char	**ft_copy_map(t_args *t_args)
+static void ft_copy_map(t_args *t_args)
 {
-	int		i;
-	char	**map_cpy;
+	int i;
 
-	map_cpy = (char **)malloc(sizeof(char *) * (t_args->heig + 1));
 	i = 0;
 	while (t_args->map[i])
 	{
-		map_cpy[i] = ft_strdup(t_args->map[i]);
+		t_args->map_cpy[i] = ft_strdup(t_args->map[i]);
 		i++;
 	}
-	map_cpy[i] = NULL;
-	return (map_cpy);
+	t_args->map_cpy[i] = NULL;
+	
 }
 
 int	ft_check_map(t_args *t_args)
 {
-	char **map_cpy;
-
+	int i = 0;
+	while (t_args->map[i])
+	{
+		printf("MAPA: %s", t_args->map[i]);
+		i++;
+	}
+	
 	if (ft_check_map_chars(t_args->map))
 		return (printf("%s Map fail%s\n", RED, RESET), FAIL);
 	printf("\n===================\n\n");
-	map_cpy = ft_copy_map(t_args);
-	for (int i = 0; map_cpy[i]; i++)
-		printf("COPY: %s", map_cpy[i]);
+	ft_copy_map(t_args);
+	for (int i = 0; t_args->map_cpy[i]; i++)
+		printf("COPY: %s", t_args->map_cpy[i]);
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:53:44 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/25 23:58:29 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/28 01:01:28 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,25 @@ static char	*ft_chech_paths(char *path_line)
 static int	ft_get_paths(t_args *t_args)
 {
 	int	i;
+	int j;
 
 	i = 0;
 	while (t_args->content[i])
 	{
-		if (ft_strnstr(t_args->content[i], "NO ", 3))
-			t_args->no_path = ft_chech_paths(t_args->content[i] + 3);
-		if (ft_strnstr(t_args->content[i], "SO ", 3))
-			t_args->so_path = ft_chech_paths(t_args->content[i] + 3);
-		if (ft_strnstr(t_args->content[i], "WE ", 3))
-			t_args->we_path = ft_chech_paths(t_args->content[i] + 3);
-		if (ft_strnstr(t_args->content[i], "EA ", 3))
-			t_args->ea_path = ft_chech_paths(t_args->content[i] + 3);
+		if (t_args->content[i])
+		{
+			j = 0;
+			while (t_args->content[i][j] && ft_isspace(t_args->content[i][j]))
+				j++;
+		}
+		if (ft_strnstr(t_args->content[i], "NO ", 3 + j))
+			t_args->no_path = ft_chech_paths(t_args->content[i] + 3 + j);
+		if (ft_strnstr(t_args->content[i], "SO ", 3 + j))
+			t_args->so_path = ft_chech_paths(t_args->content[i] + 3 + j);
+		if (ft_strnstr(t_args->content[i], "WE ", 3 + j))
+			t_args->we_path = ft_chech_paths(t_args->content[i] + 3 + j);
+		if (ft_strnstr(t_args->content[i], "EA ", 3 + j))
+			t_args->ea_path = ft_chech_paths(t_args->content[i] + 3 + j);
 		i++;
 	}
 	return (0);

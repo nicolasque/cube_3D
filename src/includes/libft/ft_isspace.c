@@ -1,42 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 22:29:22 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/27 23:54:48 by nquecedo         ###   ########.fr       */
+/*   Created: 2025/03/27 23:53:48 by nquecedo          #+#    #+#             */
+/*   Updated: 2025/03/27 23:54:01 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-long	ft_atol(const char *str)
+/**
+ * Verifica si el carácter es un espacio en blanco
+ * Incluye: espacio, tabulación, nueva línea,
+ * retorno de carro, avance de página y avance vertical
+ */
+int	ft_isspace(int c)
 {
-	long	result;
-	long	sign;
-	int		i;
-
-	result = 0;
-	sign = 1;
-	i = 0;
-	while (ft_isspace(str[i]))
-		i++;
-	if (str[i] == '+' && str[i + 1] != '-')
-		i++;
-	if (str[i] == '-')
-	{
-		sign = -1;
-		i++;
-	}
-	while (str[i] && str[i] >= 48 && str[i] <= 57)
-	{
-		result *= 10;
-		result += str[i] - 48;
-		i++;
-	}
-	result *= sign;
-	return (result);
+    return (c == ' ' || c == '\t' || c == '\n' || 
+            c == '\r' || c == '\f' || c == '\v');
 }

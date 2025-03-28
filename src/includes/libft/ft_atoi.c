@@ -6,19 +6,19 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 17:04:31 by nquecedo          #+#    #+#             */
-/*   Updated: 2023/12/13 19:09:52 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/27 23:54:39 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_isspace(int c)
-{
-	if (c == ' ' || c == '\t' || c == '\n' || c == '\v' \
-		|| c == '\f' || c == '\r')
-		return (1);
-	return (0);
-}
+// static int	ft_isspace(int c)
+// {
+// 	if (c == ' ' || c == '\t' || c == '\n' || c == '\v' \
+// 		|| c == '\f' || c == '\r')
+// 		return (1);
+// 	return (0);
+// }
 
 /*
 * Esta función convierte la cadena inicial en str a un valor int.

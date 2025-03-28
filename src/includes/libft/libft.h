@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 19:19:00 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/24 15:22:09 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/27 23:54:15 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ char				**ft_free_split(char **result, int i);
 long				ft_atol(const char *str);
 void				ft_memdel(void *ptr);
 void				ft_free_array(char **split);
+int					ft_isspace(int c);
 
 #endif // LIBFT_H

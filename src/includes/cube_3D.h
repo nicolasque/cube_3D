@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/28 18:11:06 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/28 19:12:49 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ typedef struct s_args
 
 	char *map[MAX_MAP];
 	char *map_cpy[MAX_MAP];
-
+	int map_heigth;
+	int player_x;
+	int player_y;
 	int		heig;
 }			t_args;
 
@@ -60,7 +62,6 @@ int			ft_get_color_code(t_args *t_args, int color_code[3],
 int			ft_get_textures(t_args *t_args);
 int			ft_get_map(t_args *t_args);
 int			ft_check_map(t_args *t_args);
-int			ft_isplayer(char c);
 int ft_file_long(t_args *t_args);
 
 

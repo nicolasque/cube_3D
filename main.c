@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:26:00 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/28 03:08:58 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/28 19:13:31 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ void ft_init_args(t_args *t_args)
 	t_args->so_path = NULL;
 	t_args->we_path = NULL;
 	t_args->ea_path = NULL;
+	t_args->map_heigth = 0;
+	t_args->player_x = 0;
+	t_args->player_y = 0;
     t_args->flor_color[0] = -1;
     t_args->flor_color[1] = -1;
     t_args->flor_color[2] = -1;

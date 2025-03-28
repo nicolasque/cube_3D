@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 02:04:12 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/24 17:26:22 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/28 04:05:55 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_check_color_code(char *color_str, const char *code)
 	{
 		if (color_str[i] == ',')
 			comma_count++;
-		if (color_str[i] != code[0] && color_str[i] != ' '
+		if (color_str[i] != code[0] && color_str[i] != ' ' && color_str[i] != '\n'
 			&& color_str[i] != ',' && !ft_isdigit(color_str[i]))
 			return (printf("%sInvalid color code (invalid characters)\n%s", RED,
 					RESET), FAIL);

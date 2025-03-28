@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/28 01:05:02 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/28 01:36:54 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # include <termios.h>
 # include <unistd.h>
 
-# define FAIL 2
+# define FAIL -2
 
 typedef struct s_args
 {

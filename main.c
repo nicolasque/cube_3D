@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:26:00 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/27 23:12:20 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/28 03:08:58 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ int	main(int argc, char **argv)
 	ft_init_args(&t_args);
 	if (ft_get_file_data(argc, argv, &t_args))
 		return (printf("%sArguments error%s\n", RED, RESET), 1);
-	if (ft_get_map(&t_args))
-	return (printf("%sMap error%s\n", RED, RESET), 1);
+
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/28 04:42:14 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/28 05:47:21 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ int			ft_get_color_code(t_args *t_args, int color_code[3],
 int			ft_get_textures(t_args *t_args);
 int			ft_get_map(t_args *t_args);
 int			ft_check_map(t_args *t_args);
-int ft_isplayer(char c);
+int			ft_isplayer(char c);
+int ft_file_long(t_args *t_args);
 
 
 // PRINTS
@@ -68,5 +69,6 @@ void		ft_print_map(char *str);
 char		*ft_strjoin_clean_s1(char *s1, char *s2);
 char		*ft_strjoin_clean_s2(char *s1, char *s2);
 char		*ft_strjoin_clean_s1_s2(char *s1, char *s2);
+void		ft_delete_jump(t_args *t_args);
 
 #endif // CUBE_3D_H

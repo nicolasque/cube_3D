@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:07:43 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/28 03:22:58 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/28 04:56:02 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,25 @@ static int ft_file_long(t_args *t_args)
 		line = get_next_line(t_args->fd_file);
 		ft_memdel(line);
 		file_long ++;
-		
 	}
 	close(t_args->fd_file);
 	return (file_long);
 }
 
+static void ft_delete_jump(t_args *t_args)
+{
+	int file_long;
+	int i;
+
+	i = 0;
+	file_long = ft_file_long(t_args);
+	while (i < file_long)
+	{
+		if (ft_strlen(t_args->content[i]))
+			t_args->content[i][ft_strlen(t_args->content[i]) - 1] = '\0';
+		i++;
+	}
+}
 
 static int ft_read_file(t_args *t_args)
 {
@@ -59,6 +72,8 @@ static int ft_read_file(t_args *t_args)
 	while (i < file_long)
 	{
 		t_args->content[i] = get_next_line(t_args->fd_file);
+		if (ft_strlen(t_args->content[i]))
+			t_args->content[i][ft_strlen(t_args->content[i])] = '\0';
 		i++;
 	}
 	t_args->content[i] = NULL;
@@ -72,11 +87,12 @@ int	ft_get_file_data(int argc, char **argv, t_args *t_args)
 		return (FAIL);
 	if (ft_read_file(t_args))
 		return (FAIL);
-	for (int i = 0; t_args->content[i]; i++)
-		printf("CONTENT: %s", t_args->content[i]);
-	if (ft_get_data(t_args))
-		return (FAIL);
 	if (ft_get_map(t_args))
 		return (printf("%sMap error%s\n", RED, RESET), 1);
+	ft_delete_jump(t_args);
+	if (ft_get_data(t_args))
+		return (FAIL);
+	// for (int i = 0; t_args->content[i]; i++)
+	// 	printf("CONTENT: %s", t_args->content[i]);
 	return (0);
 }

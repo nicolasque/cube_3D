@@ -6,11 +6,30 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 23:40:18 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/28 01:16:40 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/28 05:01:57 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube_3D.h"
+
+int ft_isplayer(char c)
+{
+	return (c == 'N' || c == 'S' || c == 'E' || c == 'W');
+}
+
+// static int	ft_check_line(char *str)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (str[i])
+// 	{
+// 		if (!ft_isspace(str[i]) && str[i] != '1' && str[i] != '0' && !ft_isplayer(str[i]))
+// 			return (1);
+// 		i++;
+// 	}
+// 	return (0);
+// }
 
 static int	ft_check_map_chars(char **map)
 {
@@ -65,7 +84,7 @@ int	ft_check_map(t_args *t_args)
 	printf("\n===================\n\n");
 	map_cpy = ft_copy_map(t_args);
 	for (int i = 0; map_cpy[i]; i++)
-		printf("COPY: %s\n", map_cpy[i]);
+		printf("COPY: %s", map_cpy[i]);
 
 	return (0);
 }

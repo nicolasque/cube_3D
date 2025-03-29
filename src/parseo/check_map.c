@@ -6,12 +6,11 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 23:40:18 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/29 15:00:10 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/29 15:15:12 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube_3D.h"
-
 
 void ft_flood_fill(t_args *g, int x, int y)
 {
@@ -19,7 +18,7 @@ void ft_flood_fill(t_args *g, int x, int y)
 		return;
 
 	int line_len = ft_strlen(g->map_cpy[x]);
-	if (y > line_len || g->map_cpy[x][y] == '\n')
+	if (y > line_len || g->map_cpy[x][y] == '\0')
 		return;
 
 	char current = g->map_cpy[x][y];
@@ -35,7 +34,6 @@ void ft_flood_fill(t_args *g, int x, int y)
 	ft_flood_fill(g, x + 1, y);
 }
 
-
 int ft_clean_line_jump(char **str)
 {
 	int i;
@@ -50,11 +48,25 @@ int ft_clean_line_jump(char **str)
 	return (0);
 }
 
-int ft_check_After_flood(t_args * t_args)
+int ft_check_After_flood(t_args *t_args)
 {
-	
-}
+	int i;
+	int j;
 
+	i = 0;
+	while (t_args->map[i] && t_args->map_cpy[i])
+	{
+		j = 0;
+		while (t_args->map[i][j] && t_args->map_cpy[i][j])
+		{
+			if (t_args->map[i][j] == ' ' && t_args->map_cpy[i][j] == 'x')
+				return (printf("%sMap is no closed%s\n", YELLOW, RESET), FAIL);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
 
 int ft_check_map(t_args *t_args)
 {
@@ -66,7 +78,6 @@ int ft_check_map(t_args *t_args)
 	for (int i = 0; t_args->map[i]; i++)
 		printf("MAP: %s\n", t_args->map[i]);
 
-		
 	if (ft_check_map_chars(t_args, t_args->map))
 		return (printf("%s Map fail%s\n", RED, RESET), FAIL);
 	printf("\n===================\n\n");

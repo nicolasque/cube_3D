@@ -6,13 +6,13 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 19:29:51 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/28 18:23:30 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/29 14:52:09 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube_3D.h"
 
-static int	ft_copy_map(t_args *t_args)
+static int	ft_copy_map_file(t_args *t_args)
 {
 	int	i;
 	int j;
@@ -33,7 +33,7 @@ static int	ft_copy_map(t_args *t_args)
 
 int	ft_get_map(t_args *t_args)
 {
-	ft_copy_map(t_args);
+	ft_copy_map_file(t_args);
 
 
 

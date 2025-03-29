@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/28 19:12:49 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/29 14:51:51 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ int			ft_get_textures(t_args *t_args);
 int			ft_get_map(t_args *t_args);
 int			ft_check_map(t_args *t_args);
 int ft_file_long(t_args *t_args);
+int ft_isplayer(char c);
+int ft_isplayer_pos(t_args *t_args, char c, int x, int y);
+int ft_check_map_chars(t_args *t_args, char **map);
+void ft_copy_map(t_args *t_args);
 
 
 // PRINTS

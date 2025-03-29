@@ -110,7 +110,8 @@ int ft_get_map(t_args *t_args)
 	ft_copy_map_file(t_args);
 	// for (int i = 0; t_args->map[i]; i++)
 	// 	printf("MAP: %s\n", t_args->map[i]);
-	ft_check_map(t_args);
+	if (ft_check_map(t_args))
+		return (FAIL);
 
 	return (0);
 }

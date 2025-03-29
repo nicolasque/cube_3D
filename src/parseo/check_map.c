@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 23:40:18 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/29 16:05:26 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/29 18:15:18 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,19 @@ int ft_check_After_flood(t_args *t_args)
 		j = 0;
 		while (t_args->map[i][j] && t_args->map_cpy[i][j])
 		{
+			if ((t_args->map_cpy[0][j] != '1' && t_args->map_cpy[0][j] != ' ') || (t_args->map_cpy[t_args->map_heigth - 1][j] != '1' && t_args->map_cpy[t_args->map_heigth - 1][j] != ' '))
+				return (printf("%sMap is no closed%s\n", YELLOW, RESET), FAIL);
 			if (t_args->map[i][j] == ' ' && t_args->map_cpy[i][j] == 'x')
 				return (printf("%sMap is no closed%s\n", YELLOW, RESET), FAIL);
 			j++;
 		}
 		i++;
 	}
+
+	for (int i = 0; t_args->map[i]; i++)
+		printf("COPY_flodd: %s\n", t_args->map_cpy[i]);
+	printf("\n===================\n\n");
+
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 23:40:18 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/29 15:15:12 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/29 16:05:26 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int ft_check_map(t_args *t_args)
 	{
 		t_args->map_heigth++;
 	}
-	ft_clean_line_jump(t_args->map);
+	// ft_clean_line_jump(t_args->map);
 	for (int i = 0; t_args->map[i]; i++)
 		printf("MAP: %s\n", t_args->map[i]);
 

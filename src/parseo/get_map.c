@@ -21,6 +21,8 @@ int ft_get_map_long(t_args *t_args)
 	j = 0;
 	while (t_args->content[i + 1])
 		i++;
+	while (t_args->content[i][0] == '\n')
+		i--;
 	while (t_args->content[i] && t_args->content[i][0] != '\n')
 	{
 		i--;
@@ -40,6 +42,8 @@ int ft_get_longest_line(t_args *t_args)
 	longest = 0;
 	while (t_args->content[i + 1])
 		i++;
+	while (t_args->content[i][0] == '\n')
+		i--;
 	while (t_args->content[i] && t_args->content[i][0] != '\n')
 	{
 		if ((int)ft_strlen(t_args->content[i]) > longest)
@@ -58,8 +62,8 @@ int ft_reserve_map_space(t_args *t_args)
 	t_args->map = (char **)malloc(sizeof(char *) * (t_args->map_heigth + 1));
 	while (i < t_args->map_heigth)
 	{
-		t_args->map[i] = (char *)malloc(sizeof(char) * (t_args->map_with + 2));
-		ft_memset(t_args->map[i], ' ', t_args->map_with - 1);
+		t_args->map[i] = (char *)malloc(sizeof(char) * (t_args->map_with + 1));
+		ft_memset(t_args->map[i], ' ', t_args->map_with);
 		t_args->map[i][t_args->map_with] = '\0';
 		i++;
 	}
@@ -78,7 +82,8 @@ static void ft_copy_map_file(t_args *t_args)
 	// Ir al final del contenido
 	while (t_args->content[i + 1])
 		i++;
-
+	while (t_args->content[i][0] == '\n')
+		i--;
 	// Copiar cada línea del mapa
 	while (t_args->content[i] && t_args->content[i][0] != '\n' && map_index >= 0)
 	{

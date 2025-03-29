@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 14:29:42 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/29 14:49:35 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/03/29 17:42:42 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int ft_check_map_chars(t_args *t_args, char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] != '1' && map[i][j] != '0' && !ft_isspace(map[i][j]) && !ft_isplayer(map[i][j]))
+			if (map[i][j] != '1' && map[i][j] != '0' && map[i][j] != ' ' && !ft_isplayer(map[i][j]))
 				return (printf("%s %c: invalid character in map%s\n", YELLOW,
 							   map[i][j], RESET),
 						FAIL);
@@ -61,6 +61,7 @@ void ft_copy_map(t_args *t_args)
 	int i;
 
 	i = 0;
+	t_args->map_cpy = (char **)malloc(sizeof(char *) * (t_args->map_heigth + 1));
 	while (t_args->map[i])
 	{
 		t_args->map_cpy[i] = ft_strdup(t_args->map[i]);

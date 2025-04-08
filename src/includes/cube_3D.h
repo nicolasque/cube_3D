@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/29 15:29:28 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:22:24 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ char *ft_strjoin_clean_s1(char *s1, char *s2);
 char *ft_strjoin_clean_s2(char *s1, char *s2);
 char *ft_strjoin_clean_s1_s2(char *s1, char *s2);
 void ft_delete_jump(t_args *t_args);
+int ft_extension_cheker(char *file, const char *extension);
 
 #endif // CUBE_3D_H

@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/04/29 14:45:42 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/04/29 19:18:14 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@
 #include <sys/wait.h>
 #include <termios.h>
 #include <unistd.h>
+# include <math.h>
+# include <memory.h>
+# include <stddef.h>
+# include <stdint.h>
+# include <stdbool.h>
 
 #define FAIL -2
 #define MAX_MAP 4000
@@ -56,8 +61,8 @@ typedef struct s_args
 	// Direccion del jugador (mirando hacia la derecha)
 	double	dir_x;		//dir_x = 1
 	double	dir_y;		//dir_y = 0
-	unsigned long int		roof_color;		//Color del techo
-	unsigned long int		floor_color;	//Color del suelo
+	uint32_t		roof_color;		//Color del techo
+	uint32_t		floor_color;	//Color del suelo
 } t_args;
 
 // PARSEO

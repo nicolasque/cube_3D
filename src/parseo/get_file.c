@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:07:43 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/04/08 17:28:49 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/04/29 14:11:48 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int	ft_get_file_data(int argc, char **argv, t_args *t_args)
 	ft_delete_jump(t_args);
 	if (ft_get_data(t_args))
 		return (FAIL);
+	ft_get_player_dir(t_args);
 	// for (int i = 0; t_args->content[i]; i++)
 	// 	printf("CONTENT: %s", t_args->content[i]);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 02:04:12 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/28 04:05:55 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/04/29 14:47:58 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ static int	ft_get_color_nbr(char *color_code_str, int color_code[3])
 	ft_free_array(spliteado);
 	return (0);
 }
+
 
 // Esta funcion ya es llamada dos veces, una para techo y otra para suelo
 int	ft_get_color_code(t_args *t_args, int color_code[3], const char *code)

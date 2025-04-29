@@ -21,7 +21,7 @@ PARSEO_SRCS = \
 		$(PARSEO_DIR)/get_map.c \
 		$(PARSEO_DIR)/check_map.c \
 		$(PARSEO_DIR)/check_map_utils.c \
-
+		$(PARSEO_DIR)/ft_get_player_pos.c \
 
 
 FREE_SRCS = \

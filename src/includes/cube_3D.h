@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/04/08 17:22:24 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/04/29 14:45:42 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,14 @@ typedef struct s_args
 	char **map_cpy;
 	int map_heigth;
 	int map_with;
+	char player_chr;
 	int player_x;
 	int player_y;
-	int heig;
+	// Direccion del jugador (mirando hacia la derecha)
+	double	dir_x;		//dir_x = 1
+	double	dir_y;		//dir_y = 0
+	unsigned long int		roof_color;		//Color del techo
+	unsigned long int		floor_color;	//Color del suelo
 } t_args;
 
 // PARSEO
@@ -68,6 +73,7 @@ int ft_isplayer(char c);
 int ft_isplayer_pos(t_args *t_args, char c, int x, int y);
 int ft_check_map_chars(t_args *t_args, char **map);
 void ft_copy_map(t_args *t_args);
+void ft_get_player_dir(t_args *t_args);
 
 // PRINTS
 void ft_print_map(char *str);
@@ -78,5 +84,6 @@ char *ft_strjoin_clean_s2(char *s1, char *s2);
 char *ft_strjoin_clean_s1_s2(char *s1, char *s2);
 void ft_delete_jump(t_args *t_args);
 int ft_extension_cheker(char *file, const char *extension);
+
 
 #endif // CUBE_3D_H

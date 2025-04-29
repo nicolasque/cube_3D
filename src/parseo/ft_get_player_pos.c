@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_extension_cheker.c                              :+:      :+:    :+:   */
+/*   ft_get_player_pos.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 17:19:06 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/04/29 14:11:04 by nquecedo         ###   ########.fr       */
+/*   Created: 2025/04/29 14:01:53 by nquecedo          #+#    #+#             */
+/*   Updated: 2025/04/29 14:43:36 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube_3D.h"
 
-int	ft_extension_cheker(char *file, const char *extension)
+void ft_get_player_dir(t_args *t_args)
 {
-	if (ft_strnstr(file, extension, ft_strlen(extension)))
+	char player_char;
+
+	player_char = t_args->map[t_args->player_x][t_args->player_y];
+	if (player_char == 'W')
+		t_args->dir_x = -1;
+	else if (player_char == 'E')
+		t_args->player_x = 1;
+	else if (player_char == 'N')
 	{
-		return (0);
+		t_args->player_x = 0;
+		t_args->player_y = 1;
 	}
-	// else
-	// 	printf("%sFile with invalid extension%s\n", YELLOW, RESET);
-	return (0);
+	else if (player_char == 'S')
+	{
+		t_args->player_x = 0;
+		t_args->player_y = -1;
+	}
 }

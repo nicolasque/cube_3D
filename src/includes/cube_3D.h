@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/05 16:34:11 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/05 19:16:07 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,47 @@ int			ft_extension_cheker(char *file, const char *extension);
 // RENDER
 void	render(void *param);
 void start_structure(t_structure *game, t_args *t_args);
+
+// KEY_MANAGEMENT
 void key_press(mlx_key_data_t keydata, void *param);
+int key_free(int keycode, t_structure *game);
+void key_press(mlx_key_data_t keydata, void *param);
+void key_press_negative(mlx_key_data_t keydata, t_structure *game);
+void key_press_positive(mlx_key_data_t keydata, t_structure *game);
+
+//MAKE_MAP
+void free_memory(t_structure *game);
+int make_map(t_structure *game);
+int saved_map(t_structure *game, int fd);
+
+//DIRECTION
+void choose_direction_2(t_structure *game, char direction);
+void choose_direction(t_structure *game, char direction);
+
+
+// paint, move starfe
+void draw_background(t_structure *game, int x);
+void rotate_player(t_structure *game, double rot_speed);
+void move_forward(t_structure *game);
+void move_backward(t_structure *game);
+void move_right(t_structure *game);
+void strafe_player(t_structure *game, int direction);
+void	pain_map_position(t_structure *game);
+int close_window(t_structure *game);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #endif // CUBE_3D_H

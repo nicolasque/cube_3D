@@ -42,7 +42,12 @@ UTILS_SRCS = \
 
 RENDER_SRC = \
 		$(RENDER_DIR)/cub3d.c \
-		$(RENDER_DIR)/render.c
+		$(RENDER_DIR)/render.c \
+		$(RENDER_DIR)/key_management.c \
+		$(RENDER_DIR)/make_map.c \
+		$(RENDER_DIR)/direction.c \
+		$(RENDER_DIR)/move.c \
+
 
 MAIN_SRCS = main.c
 

@@ -4,7 +4,7 @@
 
 NAME        = cub3d
 CC          = gcc
-CFLAGS      = -Wall -Wextra -Werror -I./src/includes -g
+CFLAGS      = -Wall -Wextra -Werror -I./src/includes -g -O3
 LDFLAGS     = -lreadline
 
 # Directorios
@@ -12,6 +12,14 @@ LIBFT_DIR   = src/includes/libft
 PARSEO_DIR  = src/parseo
 FREE_DIR    = src/free
 UTILS_DIR   = src/utils
+RENDER_DIR	= src/render
+
+# MLX42 Directory and options
+MLX42_DIR   = src/includes/MLX42
+MLX42_BUILD = $(MLX42_DIR)/build
+MLX42_LIB   = $(MLX42_BUILD)/libmlx42.a
+# MLX42 dependencies (adjust as needed based on your system)
+MLX_FLAGS   = -ldl -lglfw -pthread -lm
 
 PARSEO_SRCS = \
 		$(PARSEO_DIR)/get_file.c \
@@ -32,6 +40,10 @@ UTILS_SRCS = \
 		$(UTILS_DIR)/ft_clean_jump.c \
 		$(UTILS_DIR)/ft_extension_cheker.c \
 
+RENDER_SRC = \
+		$(RENDER_DIR)/cub3d.c \
+		$(RENDER_DIR)/render.c
+
 MAIN_SRCS = main.c
 
 # Unir todas las fuentes
@@ -40,6 +52,7 @@ SRCS = \
 	$(PARSEO_SRCS) \
 	$(FREE_SRCS) \
 	$(UTILS_SRCS) \
+	$(RENDER_SRC)
 
 # Create object directories
 OBJ_DIR = obj
@@ -50,12 +63,13 @@ DIRS = $(OBJ_DIR) \
        $(OBJ_DIR)/$(PARSEO_DIR) \
        $(OBJ_DIR)/$(FREE_DIR) \
        $(OBJ_DIR)/$(UTILS_DIR) \
+	   $(OBJ_DIR)/$(RENDER_DIR)
 
 # Regla principal para compilar
-all: $(DIRS) $(LIBFT_DIR)/libft.a $(NAME)
+all: $(DIRS) $(LIBFT_DIR)/libft.a $(MLX42_LIB) $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -L$(LIBFT_DIR) -lft $(LDFLAGS) -o $(NAME)
+	$(CC) $(OBJS) -L$(LIBFT_DIR) -lft -L$(MLX42_BUILD) -lmlx42 $(MLX_FLAGS) $(LDFLAGS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -68,9 +82,18 @@ $(LIBFT_DIR)/libft.a:
 		make -C $(LIBFT_DIR); \
 	fi
 
+$(MLX42_LIB):
+	@if [ ! -f "$@" ]; then \
+		cmake -B $(MLX42_BUILD) -S $(MLX42_DIR); \
+		cmake --build $(MLX42_BUILD) -j4; \
+	fi
+
 clean:
 	rm -rf $(OBJ_DIR)
 	make -C $(LIBFT_DIR) clean
+	@if [ -d "$(MLX42_BUILD)" ]; then \
+		rm -rf $(MLX42_BUILD); \
+	fi
 
 fclean: clean
 	rm -f $(NAME)

@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:26:00 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/04 18:15:58 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/05 16:16:58 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,17 @@ void ft_init_args(t_args *t_args)
 int	main(int argc, char **argv)
 {
 	t_args t_args;
+	t_structure game;
 
 	ft_init_args(&t_args);
 	if (ft_get_file_data(argc, argv, &t_args))
 		return (printf("%sArguments error%s\n", RED, RESET), 1);
 
+	start_structure(&game, &t_args);
+	mlx_image_to_window(game.mlx, game.img, 0, 0);
+	mlx_key_hook(game.mlx, &key_press, &game);
+	mlx_loop_hook(game.mlx, &render, &game);
+	mlx_loop(game.mlx);
 
 	return (0);
 }

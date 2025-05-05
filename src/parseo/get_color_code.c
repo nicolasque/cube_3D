@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 02:04:12 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/04/29 14:47:58 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/05 16:40:16 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int	ft_get_color_code(t_args *t_args, int color_code[3], const char *code)
 	int		i;
 
 	i = 0;
+	color_code_str = NULL;
 	while (t_args->content[i])
 	{
 		if (ft_strnstr(t_args->content[i], code, ft_strlen(t_args->content[i])))

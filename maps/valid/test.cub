@@ -1,10 +1,10 @@
 F 167,154,240
 C 244,162,97
 
-NO textures/bricks.xpm
-SO textures/sand.xpm
-WE textures/ice.xpm
-EA textures/woolsnow.xpm
+NO textures/bricks.png
+SO textures/sand.png
+WE textures/ice.png
+EA textures/woolsnow.png
 
 
         1111111111111111111111111

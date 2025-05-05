@@ -1,11 +1,11 @@
            F 118,30,40
 
-NO textures/spectators1.xpm
-                SO textures/spectators2.xpm
+NO textures/spectators1.png
+                SO textures/spectators2.png
 C 220,255,255
-WE textures/spectators3.xpm
+WE textures/spectators3.png
 
-EA textures/spectators4.xpm
+EA textures/spectators4.png
 
 
 11111111111111111111111

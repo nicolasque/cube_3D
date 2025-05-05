@@ -1,10 +1,10 @@
 F 255,255,255
 C 0,10,10
 
-NO textures/north.xpm
-SO textures/south.xpm
-WE textures/west.xpm
-MEA textures/east.xpm
+NO textures/north.png
+SO textures/south.png
+WE textures/west.png
+MEA textures/east.png
 
 
 1111111111111111111111111

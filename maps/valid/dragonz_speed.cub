@@ -1,11 +1,11 @@
            F 40,54,24
 
-NO textures/north.xpm
-                SO textures/south.xpm
+NO textures/north.png
+                SO textures/south.png
 C 244,162,97
-WE textures/west.xpm
+WE textures/west.png
 
-EA textures/east.xpm
+EA textures/east.png
 
 
 111111111111111111111

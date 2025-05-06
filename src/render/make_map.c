@@ -6,35 +6,33 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 19:07:22 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/05 19:09:15 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:26:47 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube_3D.h"
 
-
-int saved_map(t_structure *game, int fd)
+int	saved_map(t_structure *game, int fd)
 {
-	int i;
-	int j;
-	char *line;
-	(void)fd;
+	int		i;
+	int		j;
+	char	*line;
 
+	(void)fd;
 	i = -1;
 	while (++i < game->map_height)
 	{
 		j = -1;
 		line = game->t_args->map[i];
 		if (!line)
-			break;
+			break ;
 		game->map[i] = malloc((game->map_width) * sizeof(int));
 		if (!game->map[i])
 			return (1);
 		while (++j < game->map_width)
 		{
 			if (line[j] != '0' && line[j] != '1')
-				line[j] = ' ';
-		
+				line[j] = '1';
 			game->map[i][j] = line[j] - '0';
 		}
 		free(line);
@@ -42,23 +40,22 @@ int saved_map(t_structure *game, int fd)
 	return (0);
 }
 
-void free_memory(t_structure *game)
+void	free_memory(t_structure *game)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < game->map_height)
-			free(game->map[i]);
-
+		free(game->map[i]);
 	free(game->map);
 	game->map = NULL;
 }
 
-int make_map(t_structure *game)
+int	make_map(t_structure *game)
 {
-	int fd;
-	(void)game;
+	int	fd;
 
+	(void)game;
 	game->map = malloc(game->map_height * sizeof(int *));
 	if (!game->map)
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 19:17:07 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/05 19:19:29 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:26:12 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ void	move_backward(t_structure *game)
 
 	new_x = game->player_x - game->dir_x * MOVE_SPEED;
 	new_y = game->player_y - game->dir_y * MOVE_SPEED;
-	// Comprobaciones separadas para permitir deslizarse por las paredes
-	// Sin verificación diagonal que cancele todo el movimiento
 	if (game->map[(int)game->player_y][(int)new_x] == 0)
 		game->player_x = new_x;
 	if (game->map[(int)new_y][(int)game->player_x] == 0)

@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:57:55 by mikegonz          #+#    #+#             */
-/*   Updated: 2025/05/06 15:05:41 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:24:31 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 uint32_t	get_texture_color(mlx_texture_t *texture, int tex_x, int tex_y)
 {
 	uint32_t	index;
-	uint8_t		r, g, b, a;
+	uint8_t		r;
+	uint8_t		g;
+	uint8_t		b;
+	uint8_t		a;
 
 	index = (tex_y * texture->width + tex_x) * 4;
 	if (index >= texture->width * texture->height * 4)
@@ -26,12 +29,15 @@ uint32_t	get_texture_color(mlx_texture_t *texture, int tex_x, int tex_y)
 	a = texture->pixels[index + 3];
 	return ((r << 24) | (g << 16) | (b << 8) | a);
 }
+
 void	get_ray_direction(t_structure *g, double camera_x)
 {
 	g->ray_dir_x = g->dir_x + g->camera_x * camera_x;
 	g->ray_dir_y = g->dir_y + g->camera_y * camera_x;
 }
-void	init_dda(t_structure *g, int *map_x, int *map_y, double *side_dist_x, double *side_dist_y)
+
+void	init_dda(t_structure *g, int *map_x, int *map_y, double *side_dist_x,
+		double *side_dist_y)
 {
 	*map_x = (int)g->player_x;
 	*map_y = (int)g->player_y;
@@ -59,8 +65,8 @@ void	init_dda(t_structure *g, int *map_x, int *map_y, double *side_dist_x, doubl
 	}
 }
 
-int	perform_dda(t_structure *g, int *map_x, int *map_y,
-		double *side_dist_x, double *side_dist_y)
+int	perform_dda(t_structure *g, int *map_x, int *map_y, double *side_dist_x,
+		double *side_dist_y)
 {
 	int	hit;
 
@@ -85,15 +91,13 @@ int	perform_dda(t_structure *g, int *map_x, int *map_y,
 	return (g->side);
 }
 
-void	calculate_wall_data(t_structure *g, int map_x, int map_y,
-		double *dist, double *wall_x, int *line_height)
+void	calculate_wall_data(t_structure *g, int map_x, int map_y, double *dist,
+		double *wall_x, int *line_height)
 {
 	if (g->side == 0)
-		*dist = (map_x - g->player_x + (1 - g->step_x) / 2)
-			/ g->ray_dir_x;
+		*dist = (map_x - g->player_x + (1 - g->step_x) / 2) / g->ray_dir_x;
 	else
-		*dist = (map_y - g->player_y + (1 - g->step_y) / 2)
-			/ g->ray_dir_y;
+		*dist = (map_y - g->player_y + (1 - g->step_y) / 2) / g->ray_dir_y;
 	*line_height = (int)(g->screen_height / *dist);
 	if (g->side == 0)
 		*wall_x = g->player_y + *dist * g->ray_dir_y;
@@ -101,6 +105,7 @@ void	calculate_wall_data(t_structure *g, int map_x, int map_y,
 		*wall_x = g->player_x + *dist * g->ray_dir_x;
 	*wall_x -= floor(*wall_x);
 }
+
 void	select_texture(t_structure *g)
 {
 	if (g->side == 0)
@@ -109,14 +114,16 @@ void	select_texture(t_structure *g)
 		g->texture = (g->step_y == 1) ? g->texture_s : g->texture_n;
 }
 
-void	draw_textured_line(t_structure *g, int x, int line_height,
-		int side, mlx_texture_t *texture, double wall_x)
+void	draw_textured_line(t_structure *g, int x, int line_height, int side,
+		mlx_texture_t *texture, double wall_x)
 {
-	int		start = (g->screen_height - line_height) / 2;
-	int		end = (g->screen_height + line_height) / 2;
-	int		i, tex_x, tex_y;
-	double	step, tex_pos;
+	int	start;
+	int	end;
 
+	start = (g->screen_height - line_height) / 2;
+	end = (g->screen_height + line_height) / 2;
+	int i, tex_x, tex_y;
+	double step, tex_pos;
 	if (start < 0)
 		start = 0;
 	if (end >= g->screen_height)
@@ -135,12 +142,14 @@ void	draw_textured_line(t_structure *g, int x, int line_height,
 		i++;
 	}
 }
+
 void	render_column(t_structure *g, int x)
 {
-	double	camera_x = 2 * x / (double)g->screen_width - 1;
-	double	side_x, side_y, wall_x, dist;
-	int		map_x, map_y, height;
+	double	camera_x;
 
+	camera_x = 2 * x / (double)g->screen_width - 1;
+	double side_x, side_y, wall_x, dist;
+	int map_x, map_y, height;
 	get_ray_direction(g, camera_x);
 	init_dda(g, &map_x, &map_y, &side_x, &side_y);
 	perform_dda(g, &map_x, &map_y, &side_x, &side_y);
@@ -148,11 +157,13 @@ void	render_column(t_structure *g, int x)
 	select_texture(g);
 	draw_textured_line(g, x, height, g->side, g->texture, wall_x);
 }
+
 void	render(void *param)
 {
-	t_structure	*game = (t_structure *)param;
+	t_structure	*game;
 	int			x;
 
+	game = (t_structure *)param;
 	x = 0;
 	while (x < game->screen_width)
 	{
@@ -160,5 +171,3 @@ void	render(void *param)
 		x++;
 	}
 }
-
-

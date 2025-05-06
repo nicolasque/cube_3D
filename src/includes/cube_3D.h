@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/06 14:44:17 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:05:38 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@
 # include <unistd.h>
 
 # define ESC_KEY 65307
-# define left_arrow 65361
-# define right_arrow 65363
 # define MOVE_SPEED 0.1
 # define WINDOW_WIDTH 1000
 # define WINDOW_HEIGHT 1000
@@ -80,10 +78,10 @@ typedef struct s_structure
 	mlx_image_t		*img;
 	mlx_t			*mlx;
 	mlx_texture_t	*texture;
-	mlx_texture_t	*texture_N;
-	mlx_texture_t	*texture_S;
-	mlx_texture_t	*texture_W;
-	mlx_texture_t	*texture_E;
+	mlx_texture_t	*texture_n;
+	mlx_texture_t	*texture_s;
+	mlx_texture_t	*texture_w;
+	mlx_texture_t	*texture_e;
 
 	uint32_t		roof_color;
 	uint32_t		floor_color;

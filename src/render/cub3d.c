@@ -32,10 +32,10 @@ void start_structure(t_structure *game, t_args *t_args)
 	game->dist[1] = 0;
 	game->mlx = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, "CUB3D G4M3", true);
 	// TODO PROTEGER LAS TEXTURAS 
-	game->texture_N = mlx_load_png(t_args->no_path);
-	game->texture_E = mlx_load_png(t_args->ea_path);
-	game->texture_S = mlx_load_png(t_args->so_path);
-	game->texture_W = mlx_load_png(t_args->we_path);
+	game->texture_n = mlx_load_png(t_args->no_path);
+	game->texture_e = mlx_load_png(t_args->ea_path);
+	game->texture_s = mlx_load_png(t_args->so_path);
+	game->texture_w = mlx_load_png(t_args->we_path);
 	game->img = mlx_new_image(game->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	choose_direction(game, game->direction);
 	make_map(game);

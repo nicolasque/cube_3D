@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:57:55 by mikegonz          #+#    #+#             */
-/*   Updated: 2025/05/05 16:11:44 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:05:41 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,9 +104,9 @@ void	calculate_wall_data(t_structure *g, int map_x, int map_y,
 void	select_texture(t_structure *g)
 {
 	if (g->side == 0)
-		g->texture = (g->step_x == 1) ? g->texture_W : g->texture_E;
+		g->texture = (g->step_x == 1) ? g->texture_w : g->texture_e;
 	else
-		g->texture = (g->step_y == 1) ? g->texture_S : g->texture_N;
+		g->texture = (g->step_y == 1) ? g->texture_s : g->texture_n;
 }
 
 void	draw_textured_line(t_structure *g, int x, int line_height,

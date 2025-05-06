@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:53:44 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/28 01:01:28 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:17:26 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char	*ft_chech_paths(char *path_line)
 static int	ft_get_paths(t_args *t_args)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	while (t_args->content[i])

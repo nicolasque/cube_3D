@@ -12,10 +12,10 @@
 
 #include "../includes/cube_3D.h"
 
-int ft_get_map_long(t_args *t_args)
+int	ft_get_map_long(t_args *t_args)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -31,11 +31,11 @@ int ft_get_map_long(t_args *t_args)
 	return (j);
 }
 
-int ft_get_longest_line(t_args *t_args)
+int	ft_get_longest_line(t_args *t_args)
 {
-	int longest;
-	int i;
-	int j;
+	int	longest;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -54,9 +54,9 @@ int ft_get_longest_line(t_args *t_args)
 	return (longest);
 }
 
-int ft_reserve_map_space(t_args *t_args)
+int	ft_reserve_map_space(t_args *t_args)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	t_args->map = (char **)malloc(sizeof(char *) * (t_args->map_heigth + 1));
@@ -71,47 +71,34 @@ int ft_reserve_map_space(t_args *t_args)
 	return (0);
 }
 
-static void ft_copy_map_file(t_args *t_args)
+static void	ft_copy_map_file(t_args *t_args)
 {
-	int i;
-	int map_index;
+	int	i;
+	int	map_index;
 
 	i = 0;
-	map_index = t_args->map_heigth - 1; // Empezamos desde el final del mapa
-
-	// Ir al final del contenido
+	map_index = t_args->map_heigth - 1;
 	while (t_args->content[i + 1])
 		i++;
 	while (t_args->content[i][0] == '\n')
 		i--;
-	// Copiar cada línea del mapa
-	while (t_args->content[i] && t_args->content[i][0] != '\n' && map_index >= 0)
+	while (t_args->content[i] && t_args->content[i][0] != '\n'
+		&& map_index >= 0)
 	{
 		ft_memcpy(t_args->map[map_index], t_args->content[i],
-				  (ft_strlen(t_args->content[i]) - 1));
+			(ft_strlen(t_args->content[i]) - 1));
 		i--;
 		map_index--;
 	}
 }
 
-int ft_get_map(t_args *t_args)
+int	ft_get_map(t_args *t_args)
 {
-
-	for (int i = 0; t_args->content[i]; i++)
-		printf("CONTENT: %s", t_args->content[i]);
-
 	t_args->map_heigth = ft_get_map_long(t_args);
 	t_args->map_with = ft_get_longest_line(t_args);
 	ft_reserve_map_space(t_args);
-	// PRINT MAP
-	for (int i = 0; t_args->map[i]; i++)
-		printf("MAP_APACE: %s\n", t_args->map[i]);
-
 	ft_copy_map_file(t_args);
-	// for (int i = 0; t_args->map[i]; i++)
-	// 	printf("MAP: %s\n", t_args->map[i]);
 	if (ft_check_map(t_args))
 		return (FAIL);
-
 	return (0);
 }

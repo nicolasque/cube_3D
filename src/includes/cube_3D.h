@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/06 15:05:38 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:06:57 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ typedef struct s_structure
 	double			delta_dist_x;
 	double			desta_dist_y;
 
-	double			side_dist_X;
+	double			side_dist_x;
 	double			side_dist_y;
 	int				step_x;
 	int				step_y;

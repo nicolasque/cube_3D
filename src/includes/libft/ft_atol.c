@@ -6,12 +6,11 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 22:29:22 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/27 23:54:48 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:07:55 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 long	ft_atol(const char *str)
 {

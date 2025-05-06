@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:19:52 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/24 15:21:53 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:07:49 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_free_array(char **split)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (split[i])

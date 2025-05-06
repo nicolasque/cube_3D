@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 02:04:12 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/05 16:40:16 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:17:12 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ static int	ft_check_color_code(char *color_str, const char *code)
 	{
 		if (color_str[i] == ',')
 			comma_count++;
-		if (color_str[i] != code[0] && color_str[i] != ' ' && color_str[i] != '\n'
+		if (color_str[i] != code[0] && color_str[i] != ' ' && \
+			color_str[i] != '\n'
 			&& color_str[i] != ',' && !ft_isdigit(color_str[i]))
 			return (printf("%sInvalid color code (invalid characters)\n%s", RED,
 					RESET), FAIL);
@@ -65,8 +66,6 @@ static int	ft_get_color_nbr(char *color_code_str, int color_code[3])
 	return (0);
 }
 
-
-// Esta funcion ya es llamada dos veces, una para techo y otra para suelo
 int	ft_get_color_code(t_args *t_args, int color_code[3], const char *code)
 {
 	char	*color_code_str;

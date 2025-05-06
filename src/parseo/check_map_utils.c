@@ -6,18 +6,18 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 14:29:42 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/03/29 17:42:42 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:11:05 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube_3D.h"
 
-int ft_isplayer(char c)
+int	ft_isplayer(char c)
 {
 	return (c == 'N' || c == 'S' || c == 'E' || c == 'W');
 }
 
-int ft_isplayer_pos(t_args *t_args, char c, int x, int y)
+int	ft_isplayer_pos(t_args *t_args, char c, int x, int y)
 {
 	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
 	{
@@ -28,11 +28,11 @@ int ft_isplayer_pos(t_args *t_args, char c, int x, int y)
 	return (0);
 }
 
-int ft_check_map_chars(t_args *t_args, char **map)
+int	ft_check_map_chars(t_args *t_args, char **map)
 {
-	int i;
-	int j;
-	int player_count;
+	int	i;
+	int	j;
+	int	player_count;
 
 	i = 0;
 	player_count = 0;
@@ -41,10 +41,10 @@ int ft_check_map_chars(t_args *t_args, char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] != '1' && map[i][j] != '0' && map[i][j] != ' ' && !ft_isplayer(map[i][j]))
+			if (map[i][j] != '1' && map[i][j] != '0' && map[i][j] != ' '
+				&& !ft_isplayer(map[i][j]))
 				return (printf("%s %c: invalid character in map%s\n", YELLOW,
-							   map[i][j], RESET),
-						FAIL);
+						map[i][j], RESET), FAIL);
 			if (ft_isplayer_pos(t_args, map[i][j], i, j))
 				player_count++;
 			j++;
@@ -52,16 +52,18 @@ int ft_check_map_chars(t_args *t_args, char **map)
 		i++;
 	}
 	if (player_count != 1)
-		return (printf("%sPlayer count: %d%s\n", YELLOW, player_count, RESET), FAIL);
+		return (printf("%sPlayer count: %d%s\n", YELLOW, player_count, RESET),
+			FAIL);
 	return (0);
 }
 
-void ft_copy_map(t_args *t_args)
+void	ft_copy_map(t_args *t_args)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	t_args->map_cpy = (char **)malloc(sizeof(char *) * (t_args->map_heigth + 1));
+	t_args->map_cpy = (char **)malloc(sizeof(char *) * (t_args->map_heigth
+				+ 1));
 	while (t_args->map[i])
 	{
 		t_args->map_cpy[i] = ft_strdup(t_args->map[i]);

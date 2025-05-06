@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/06 15:06:57 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/06 17:29:35 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,8 @@ typedef struct s_structure
 
 }					t_structure;
 
+// PARSEO
+
 int					ft_get_file_data(int argc, char **argv, t_args *t_args);
 int					ft_get_data(t_args *t_args);
 int					ft_get_color_code(t_args *t_args, int color_code[3],
@@ -129,17 +131,21 @@ int					ft_isplayer_pos(t_args *t_args, char c, int x, int y);
 int					ft_check_map_chars(t_args *t_args, char **map);
 void				ft_copy_map(t_args *t_args);
 void				ft_get_player_dir(t_args *t_args);
+// PRINTS
 
 void				ft_print_map(char *str);
+// UTILS
 
 char				*ft_strjoin_clean_s1(char *s1, char *s2);
 char				*ft_strjoin_clean_s2(char *s1, char *s2);
 char				*ft_strjoin_clean_s1_s2(char *s1, char *s2);
 void				ft_delete_jump(t_args *t_args);
 int					ft_extension_cheker(char *file, const char *extension);
+// RENDER
 
 void				render(void *param);
 void				start_structure(t_structure *game, t_args *t_args);
+// KEY_MANAGEMENT
 
 void				key_press(mlx_key_data_t keydata, void *param);
 int					key_free(int keycode, t_structure *game);
@@ -148,14 +154,16 @@ void				key_press_negative(mlx_key_data_t keydata,
 						t_structure *game);
 void				key_press_positive(mlx_key_data_t keydata,
 						t_structure *game);
+// MAKE_MAP
 
 void				free_memory(t_structure *game);
 int					make_map(t_structure *game);
 int					saved_map(t_structure *game, int fd);
-
+// DIRECTION
 void				choose_direction_2(t_structure *game, char direction);
 void				choose_direction(t_structure *game, char direction);
 
+// paint, move starfe
 void				draw_background(t_structure *game, int x);
 void				rotate_player(t_structure *game, double rot_speed);
 void				move_forward(t_structure *game);
@@ -164,5 +172,14 @@ void				move_right(t_structure *game);
 void				strafe_player(t_structure *game, int direction);
 void				pain_map_position(t_structure *game);
 int					close_window(t_structure *game);
+uint32_t	get_texture_color(mlx_texture_t *texture, int tex_x, int tex_y);
+
+
+// WALL
+void				calculate_wall_data(t_structure *g, int map_x, int map_y,
+						double *dist, double *wall_x, int *line_height);
+void				select_texture(t_structure *g);
+void				draw_textured_line(t_structure *g, int x, int line_height,
+						int side, mlx_texture_t *texture, double wall_x);
 
 #endif // CUBE_3D_H

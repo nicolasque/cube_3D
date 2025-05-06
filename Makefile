@@ -47,6 +47,7 @@ RENDER_SRC = \
 		$(RENDER_DIR)/make_map.c \
 		$(RENDER_DIR)/direction.c \
 		$(RENDER_DIR)/move.c \
+		$(RENDER_DIR)/textures_wall.c \
 
 
 MAIN_SRCS = main.c

@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:57:55 by mikegonz          #+#    #+#             */
-/*   Updated: 2025/05/06 15:24:31 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:39:32 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,10 @@ void	get_ray_direction(t_structure *g, double camera_x)
 	g->ray_dir_y = g->dir_y + g->camera_y * camera_x;
 }
 
-void	init_dda(t_structure *g, int *map_x, int *map_y, double *side_dist_x,
-		double *side_dist_y)
+void	init_dda_x(t_structure *g, int *map_x, double *side_dist_x)
 {
 	*map_x = (int)g->player_x;
-	*map_y = (int)g->player_y;
 	g->dist[0] = fabs(1 / g->ray_dir_x);
-	g->dist[1] = fabs(1 / g->ray_dir_y);
 	if (g->ray_dir_x < 0)
 	{
 		g->step_x = -1;
@@ -53,6 +50,12 @@ void	init_dda(t_structure *g, int *map_x, int *map_y, double *side_dist_x,
 		g->step_x = 1;
 		*side_dist_x = (*map_x + 1.0 - g->player_x) * g->dist[0];
 	}
+}
+
+void	init_dda_y(t_structure *g, int *map_y, double *side_dist_y)
+{
+	*map_y = (int)g->player_y;
+	g->dist[1] = fabs(1 / g->ray_dir_y);
 	if (g->ray_dir_y < 0)
 	{
 		g->step_y = -1;
@@ -146,12 +149,13 @@ void	draw_textured_line(t_structure *g, int x, int line_height, int side,
 void	render_column(t_structure *g, int x)
 {
 	double	camera_x;
-
-	camera_x = 2 * x / (double)g->screen_width - 1;
 	double side_x, side_y, wall_x, dist;
 	int map_x, map_y, height;
+
+	camera_x = 2 * x / (double)g->screen_width - 1;
 	get_ray_direction(g, camera_x);
-	init_dda(g, &map_x, &map_y, &side_x, &side_y);
+	init_dda_x(g, &map_x, &side_x);
+	init_dda_y(g, &map_y, &side_y);
 	perform_dda(g, &map_x, &map_y, &side_x, &side_y);
 	calculate_wall_data(g, map_x, map_y, &dist, &wall_x, &height);
 	select_texture(g);

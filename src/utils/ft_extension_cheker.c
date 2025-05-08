@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_extension_cheker.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mikegonz <mikegonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:19:06 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/04/29 14:11:04 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/08 20:31:14 by mikegonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,5 @@ int	ft_extension_cheker(char *file, const char *extension)
 	{
 		return (0);
 	}
-	// else
-	// 	printf("%sFile with invalid extension%s\n", YELLOW, RESET);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube_3D.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mikegonz <mikegonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/06 17:29:35 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/08 19:26:09 by mikegonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ typedef struct s_structure
 	mlx_texture_t	*texture_s;
 	mlx_texture_t	*texture_w;
 	mlx_texture_t	*texture_e;
+	int				tex_x;
+	int				tex_y;
 
 	uint32_t		roof_color;
 	uint32_t		floor_color;
@@ -113,6 +115,7 @@ typedef struct s_structure
 	double			dist[2];
 
 	char			direction;
+	int				line_height;
 
 }					t_structure;
 
@@ -175,11 +178,11 @@ int					close_window(t_structure *game);
 uint32_t	get_texture_color(mlx_texture_t *texture, int tex_x, int tex_y);
 
 
-// WALL
-void				calculate_wall_data(t_structure *g, int map_x, int map_y,
-						double *dist, double *wall_x, int *line_height);
-void				select_texture(t_structure *g);
-void				draw_textured_line(t_structure *g, int x, int line_height,
-						int side, mlx_texture_t *texture, double wall_x);
+// RENDER_2
+int	perform_dda(t_structure *game, double *side_dist_x, double *side_dist_y);
+void	init_dda(t_structure *game, double *side_dist_x, double *side_dist_y);
+void	get_ray_direction(t_structure *g, double camera_x);
+uint32_t	get_texture_color(mlx_texture_t *texture, int tex_x, int tex_y);
+void	calculate_wall_data(t_structure *game, double *dist, double *wall_x);
 
 #endif // CUBE_3D_H

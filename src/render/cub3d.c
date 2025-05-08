@@ -24,6 +24,9 @@ void	start_structure(t_structure *game, t_args *t_args)
 	game->player_x = t_args->player_x;
 	game->player_y = t_args->player_y;
 	game->direction = t_args->player_chr;
+	game->tex_x = 0;
+	game->tex_y = 0;
+	game->line_height = 0;
 	game->map_x = 0;
 	game->map_y = 0;
 	game->step_x = 0;

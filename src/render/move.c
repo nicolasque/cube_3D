@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mikegonz <mikegonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 19:17:07 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/06 15:26:12 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/08 20:27:28 by mikegonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	move_right(t_structure *game)
 		game->player_y += game->dir_y * MOVE_SPEED;
 }
 
-// PINTAMOS EL MAPA EN LA TERMINAL
 void	pain_map_position(t_structure *game)
 {
 	static int	current_x;
@@ -75,4 +74,19 @@ void	pain_map_position(t_structure *game)
 	}
 	current_x = (int)game->player_x;
 	current_y = (int)game->player_y;
+}
+
+void	rotate_player(t_structure *game, double rot_speed)
+{
+	double	old_dir_x;
+	double	old_camera_x;
+
+	old_dir_x = game->dir_x;
+	old_camera_x = game->camera_x;
+	game->dir_x = game->dir_x * cos(rot_speed) - game->dir_y * sin(rot_speed);
+	game->dir_y = old_dir_x * sin(rot_speed) + game->dir_y * cos(rot_speed);
+	game->camera_x = game->camera_x * cos(rot_speed) - game->camera_y
+		* sin(rot_speed);
+	game->camera_y = old_camera_x * sin(rot_speed) + game->camera_y
+		* cos(rot_speed);
 }

@@ -6,7 +6,7 @@
 /*   By: mikegonz <mikegonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/08 19:26:09 by mikegonz         ###   ########.fr       */
+/*   Updated: 2025/05/08 20:24:13 by mikegonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,14 +175,14 @@ void				move_right(t_structure *game);
 void				strafe_player(t_structure *game, int direction);
 void				pain_map_position(t_structure *game);
 int					close_window(t_structure *game);
-uint32_t	get_texture_color(mlx_texture_t *texture, int tex_x, int tex_y);
+uint32_t			get_texture_color(mlx_texture_t *texture, int tex_x, int tex_y);
 
 
 // RENDER_2
-int	perform_dda(t_structure *game, double *side_dist_x, double *side_dist_y);
-void	init_dda(t_structure *game, double *side_dist_x, double *side_dist_y);
-void	get_ray_direction(t_structure *g, double camera_x);
-uint32_t	get_texture_color(mlx_texture_t *texture, int tex_x, int tex_y);
-void	calculate_wall_data(t_structure *game, double *dist, double *wall_x);
+int					perform_dda(t_structure *game, double *side_dist_x, double *side_dist_y);
+void				init_dda(t_structure *game, double *side_dist_x, double *side_dist_y);
+void				get_ray_direction(t_structure *g, double camera_x);
+uint32_t			get_texture_color(mlx_texture_t *texture, int tex_x, int tex_y);
+void				calculate_wall_data(t_structure *game, double *dist, double *wall_x);
 
 #endif // CUBE_3D_H

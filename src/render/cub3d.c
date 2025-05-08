@@ -12,6 +12,19 @@
 
 #include "../includes/cube_3D.h"
 
+void	init_zero(t_structure *game)
+{
+	game->tex_x = 0;
+	game->tex_y = 0;
+	game->line_height = 0;
+	game->map_x = 0;
+	game->map_y = 0;
+	game->step_x = 0;
+	game->step_y = 0;
+	game->dist[0] = 0;
+	game->dist[1] = 0;
+}
+
 void	start_structure(t_structure *game, t_args *t_args)
 {
 	game->t_args = t_args;
@@ -24,15 +37,7 @@ void	start_structure(t_structure *game, t_args *t_args)
 	game->player_x = t_args->player_x;
 	game->player_y = t_args->player_y;
 	game->direction = t_args->player_chr;
-	game->tex_x = 0;
-	game->tex_y = 0;
-	game->line_height = 0;
-	game->map_x = 0;
-	game->map_y = 0;
-	game->step_x = 0;
-	game->step_y = 0;
-	game->dist[0] = 0;
-	game->dist[1] = 0;
+	init_zero(game);
 	game->mlx = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, "CUB3D G4M3", true);
 	game->texture_n = mlx_load_png(t_args->no_path);
 	game->texture_e = mlx_load_png(t_args->ea_path);
@@ -59,21 +64,6 @@ void	draw_background(t_structure *game, int x)
 				mlx_put_pixel(game->img, x, i, game->roof_color);
 		}
 	}
-}
-
-void	rotate_player(t_structure *game, double rot_speed)
-{
-	double	old_dir_x;
-	double	old_camera_x;
-
-	old_dir_x = game->dir_x;
-	old_camera_x = game->camera_x;
-	game->dir_x = game->dir_x * cos(rot_speed) - game->dir_y * sin(rot_speed);
-	game->dir_y = old_dir_x * sin(rot_speed) + game->dir_y * cos(rot_speed);
-	game->camera_x = game->camera_x * cos(rot_speed) - game->camera_y
-		* sin(rot_speed);
-	game->camera_y = old_camera_x * sin(rot_speed) + game->camera_y
-		* cos(rot_speed);
 }
 
 void	strafe_player(t_structure *game, int direction)

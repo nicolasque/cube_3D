@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mikegonz <mikegonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:26:00 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/09 17:36:16 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/09 19:15:26 by mikegonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "src/includes/cube_3D.h"
 
-void ft_init_args(t_args *t_args)
+void	ft_init_args(t_args *t_args)
 {
 	t_args->file_name = NULL;
 	t_args->no_path = NULL;
@@ -33,11 +33,10 @@ void ft_init_args(t_args *t_args)
 	t_args->map_cpy = NULL;
 }
 
-void ft_clean_args(t_args *t_args)
+void	ft_clean_args(t_args *t_args)
 {
 	if (!t_args)
-		return;
-
+		return ;
 	if (t_args->no_path)
 		ft_memdel(t_args->no_path);
 	if (t_args->so_path)
@@ -52,14 +51,15 @@ void ft_clean_args(t_args *t_args)
 		ft_free_array(t_args->map_cpy);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_args t_args;
-	t_structure game;
+	t_args		t_args;
+	t_structure	game;
 
 	ft_init_args(&t_args);
 	if (ft_get_file_data(argc, argv, &t_args))
-		return (printf("%sArguments error%s\n", RED, RESET), ft_clean_args(&t_args), 1);
+		return (printf("%sArguments error%s\n", RED, RESET), \
+			ft_clean_args(&t_args), 1);
 	start_structure(&game, &t_args);
 	mlx_image_to_window(game.mlx, game.img, 0, 0);
 	mlx_key_hook(game.mlx, &key_press, &game);

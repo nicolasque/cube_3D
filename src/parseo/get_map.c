@@ -75,7 +75,7 @@ static void	ft_copy_map_file(t_args *t_args)
 {
 	int	i;
 	int	map_index;
-	int jump_flag;
+	int	jump_flag;
 
 	i = 0;
 	map_index = t_args->map_heigth - 1;
@@ -86,13 +86,13 @@ static void	ft_copy_map_file(t_args *t_args)
 	while (t_args->content[i] && t_args->content[i][0] != '\n'
 		&& map_index >= 0)
 	{
-		if (t_args->content[i][ft_strlen(t_args->content[i]) - 1]  == '\n')
+		if (t_args->content[i][ft_strlen(t_args->content[i]) - 1] == '\n')
 			jump_flag = 1;
 		else
 			jump_flag = 0;
 		ft_memcpy(t_args->map[map_index], t_args->content[i],
 			(ft_strlen(t_args->content[i]) - jump_flag));
-			i--;
+		i--;
 		map_index--;
 	}
 }
@@ -100,7 +100,6 @@ static void	ft_copy_map_file(t_args *t_args)
 int	ft_get_map(t_args *t_args)
 {
 	t_args->map_heigth = ft_get_map_long(t_args);
-	printf("Alto del mapa: %d\n", t_args->map_heigth);
 	t_args->map_with = ft_get_longest_line(t_args);
 	ft_reserve_map_space(t_args);
 	ft_copy_map_file(t_args);

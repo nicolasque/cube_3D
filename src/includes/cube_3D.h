@@ -6,7 +6,7 @@
 /*   By: mikegonz <mikegonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/09 18:12:36 by mikegonz         ###   ########.fr       */
+/*   Updated: 2025/05/09 19:12:53 by mikegonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,5 +190,5 @@ void				calculate_wall_data(t_structure *game, double *dist, \
 								double *wall_x);
 
 void				ft_clean_args(t_args *t_args);
-								
+
 #endif // CUBE_3D_H

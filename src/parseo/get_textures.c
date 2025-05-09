@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:53:44 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/06 15:17:26 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:36:28 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,5 @@ int	ft_get_textures(t_args *t_args)
 	if (!t_args->no_path || !t_args->so_path || !t_args->we_path
 		|| !t_args->ea_path)
 		return (FAIL);
-	printf("NO: %s\n", t_args->no_path);
-	printf("SO: %s\n", t_args->so_path);
-	printf("WE: %s\n", t_args->we_path);
-	printf("EA: %s\n", t_args->ea_path);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 02:04:12 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/09 14:23:11 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:36:53 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ int	ft_get_color_code(t_args *t_args, int color_code[3], const char *code)
 	}
 	if (ft_check_color_code(color_code_str, code))
 		return (ft_memdel(color_code_str), FAIL);
-	printf("Color, code: %s\n", color_code_str);
 	if (ft_get_color_nbr(color_code_str, color_code))
 		return (printf("%sInvalid color code%s\n", RED, RESET),ft_memdel(color_code_str) ,FAIL);
 	return (0);

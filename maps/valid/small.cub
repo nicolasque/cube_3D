@@ -2,10 +2,10 @@
 F 40,54,24
 C 244,162,97
 
-NO textures/bricks.png
-SO textures/sand.png
-WE textures/ice.png
-EA textures/woolsnow.png
+NO textures/north.png
+SO textures/south.png
+WE textures/west.png
+EA textures/east.png
 
 1111111111111111111111111
 100000N11110000001       

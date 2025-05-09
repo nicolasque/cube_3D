@@ -1,8 +1,0 @@
-{
-	"files.associations": {
-		"termios.h": "c",
-		"cube_3d.h": "c",
-		"colors.h": "c",
-		"math.h": "c"
-	}
-}

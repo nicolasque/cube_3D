@@ -6,13 +6,13 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:26:00 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/06 15:01:04 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/09 14:37:21 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "src/includes/cube_3D.h"
 
-void	ft_init_args(t_args *t_args)
+void ft_init_args(t_args *t_args)
 {
 	t_args->file_name = NULL;
 	t_args->no_path = NULL;
@@ -28,16 +28,38 @@ void	ft_init_args(t_args *t_args)
 	t_args->cealing_color[0] = -1;
 	t_args->cealing_color[1] = -1;
 	t_args->cealing_color[2] = -1;
+	t_args->content = NULL;
+	t_args->map = NULL;
+	t_args->map_cpy = NULL;
 }
 
-int	main(int argc, char **argv)
+void ft_clean_args(t_args *t_args)
 {
-	t_args		t_args;
-	t_structure	game;
+	if (!t_args)
+		return;
+
+	if (t_args->no_path)
+		ft_memdel(t_args->no_path);
+	if (t_args->so_path)
+		ft_memdel(t_args->so_path);
+	if (t_args->we_path)
+		ft_memdel(t_args->ea_path);
+	if (t_args->content)
+		ft_free_array(t_args->content);
+	if (t_args->map)
+		ft_free_array(t_args->map);
+	if (t_args->map_cpy)
+		ft_free_array(t_args->map_cpy);
+}
+
+int main(int argc, char **argv)
+{
+	t_args t_args;
+	t_structure game;
 
 	ft_init_args(&t_args);
 	if (ft_get_file_data(argc, argv, &t_args))
-		return (printf("%sArguments error%s\n", RED, RESET), 1);
+		return (printf("%sArguments error%s\n", RED, RESET), ft_clean_args(&t_args), 1);
 	start_structure(&game, &t_args);
 	mlx_image_to_window(game.mlx, game.img, 0, 0);
 	mlx_key_hook(game.mlx, &key_press, &game);

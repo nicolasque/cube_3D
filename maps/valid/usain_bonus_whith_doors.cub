@@ -1,12 +1,9 @@
            F 118,30,40
 
-NO textures/spectators1.png
-                SO textures/spectators2.png
-C 220,255,255
-WE textures/spectators3.png
-
-EA textures/spectators4.png
-
+NO textures/north.png
+SO textures/south.png
+WE textures/west.png
+EA textures/east.png
 
 11111111111111111111111
 10000000100000000000001

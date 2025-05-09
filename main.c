@@ -6,7 +6,7 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:26:00 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/09 14:37:21 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:31:15 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int main(int argc, char **argv)
 		return (printf("%sArguments error%s\n", RED, RESET), ft_clean_args(&t_args), 1);
 	start_structure(&game, &t_args);
 	mlx_image_to_window(game.mlx, game.img, 0, 0);
+	printf("Player pos x: %d, y: %d\n",t_args.player_x, t_args.player_y);
 	mlx_key_hook(game.mlx, &key_press, &game);
 	mlx_loop_hook(game.mlx, &render, &game);
 	mlx_loop(game.mlx);

@@ -6,7 +6,7 @@
 /*   By: mikegonz <mikegonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/09 19:12:53 by mikegonz         ###   ########.fr       */
+/*   Updated: 2025/05/09 20:17:51 by mikegonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,7 +161,7 @@ void				key_press_positive(mlx_key_data_t keydata,
 
 void				free_memory(t_structure *game);
 int					make_map(t_structure *game);
-int					saved_map(t_structure *game, int fd);
+int					saved_map(t_structure *game);
 // DIRECTION
 void				choose_direction_2(t_structure *game, char direction);
 void				choose_direction(t_structure *game, char direction);

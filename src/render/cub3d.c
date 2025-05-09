@@ -34,8 +34,8 @@ void	start_structure(t_structure *game, t_args *t_args)
 	game->map_height = t_args->map_heigth;
 	game->roof_color = t_args->roof_color;
 	game->floor_color = t_args->floor_color;
-	game->player_x = t_args->player_x;
-	game->player_y = t_args->player_y;
+	game->player_x = (double)t_args->player_y;
+	game->player_y = (double)t_args->player_x;
 	game->direction = t_args->player_chr;
 	init_zero(game);
 	game->mlx = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, "CUB3D G4M3", true);

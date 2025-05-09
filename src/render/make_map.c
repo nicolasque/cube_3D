@@ -6,19 +6,18 @@
 /*   By: mikegonz <mikegonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 19:07:22 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/09 19:06:22 by mikegonz         ###   ########.fr       */
+/*   Updated: 2025/05/09 20:18:20 by mikegonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube_3D.h"
 
-int	saved_map(t_structure *game, int fd)
+int	saved_map(t_structure *game)
 {
 	int		i;
 	int		j;
 	char	*line;
 
-	(void)fd;
 	i = -1;
 	while (++i < game->map_height)
 	{
@@ -31,7 +30,10 @@ int	saved_map(t_structure *game, int fd)
 			return (1);
 		while (++j < game->map_width)
 		{
-			if (line[j] != '0' && line[j] != '1')
+			if (line[j] == 'W' || line[j] == 'E' || \
+					line[j] == 'N' || line[j] == 'S')
+				line[j] = '0';
+			else if (line[j] != '0' && line[j] != '1')
 				line[j] = '1';
 			game->map[i][j] = line[j] - '0';
 		}
@@ -60,7 +62,7 @@ int	make_map(t_structure *game)
 	if (!game->map)
 		return (1);
 	fd = 0;
-	if (saved_map(game, fd))
+	if (saved_map(game))
 	{
 		free_memory(game);
 		printf("map error!\n");

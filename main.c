@@ -6,7 +6,7 @@
 /*   By: mikegonz <mikegonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:26:00 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/09 19:15:26 by mikegonz         ###   ########.fr       */
+/*   Updated: 2025/05/09 19:46:27 by mikegonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,6 @@ void	ft_clean_args(t_args *t_args)
 {
 	if (!t_args)
 		return ;
-	if (t_args->no_path)
-		ft_memdel(t_args->no_path);
-	if (t_args->so_path)
-		ft_memdel(t_args->so_path);
-	if (t_args->we_path)
-		ft_memdel(t_args->ea_path);
 	if (t_args->content)
 		ft_free_array(t_args->content);
 	if (t_args->map)

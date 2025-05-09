@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mikegonz <mikegonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 19:07:22 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/06 15:26:47 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/09 19:06:22 by mikegonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	saved_map(t_structure *game, int fd)
 				line[j] = '1';
 			game->map[i][j] = line[j] - '0';
 		}
-		free(line);
 	}
 	return (0);
 }
@@ -46,9 +45,10 @@ void	free_memory(t_structure *game)
 
 	i = -1;
 	while (++i < game->map_height)
-		free(game->map[i]);
-	free(game->map);
+		ft_memdel(game->map[i]);
+	ft_memdel(game->map);
 	game->map = NULL;
+	ft_clean_args(game->t_args);
 }
 
 int	make_map(t_structure *game)

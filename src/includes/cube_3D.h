@@ -6,7 +6,7 @@
 /*   By: mikegonz <mikegonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:09:39 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/08 20:44:10 by mikegonz         ###   ########.fr       */
+/*   Updated: 2025/05/09 18:12:36 by mikegonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,4 +189,6 @@ uint32_t			get_texture_color(mlx_texture_t *texture, int tex_x, \
 void				calculate_wall_data(t_structure *game, double *dist, \
 								double *wall_x);
 
+void				ft_clean_args(t_args *t_args);
+								
 #endif // CUBE_3D_H

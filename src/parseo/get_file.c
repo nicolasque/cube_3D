@@ -6,13 +6,13 @@
 /*   By: nquecedo <nquecedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:07:43 by nquecedo          #+#    #+#             */
-/*   Updated: 2025/05/09 15:06:28 by nquecedo         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:38:18 by nquecedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube_3D.h"
 
-static int ft_arg_cheker(int argc, char **argv, t_args *t_args)
+static int	ft_arg_cheker(int argc, char **argv, t_args *t_args)
 {
 	if (argc != 2)
 		return (printf("%sArguments, error \n%s", RED, RESET), FAIL);
@@ -27,10 +27,10 @@ static int ft_arg_cheker(int argc, char **argv, t_args *t_args)
 	return (0);
 }
 
-int ft_file_long(t_args *t_args)
+int	ft_file_long(t_args *t_args)
 {
-	int file_long;
-	char *line;
+	int		file_long;
+	char	*line;
 
 	t_args->fd_file = open(t_args->file_name, O_RDONLY);
 	file_long = 0;
@@ -48,10 +48,10 @@ int ft_file_long(t_args *t_args)
 	return (file_long);
 }
 
-static int ft_read_file(t_args *t_args)
+static int	ft_read_file(t_args *t_args)
 {
-	int file_long;
-	int i;
+	int	file_long;
+	int	i;
 
 	i = 0;
 	file_long = ft_file_long(t_args);
@@ -71,7 +71,7 @@ static int ft_read_file(t_args *t_args)
 	return (0);
 }
 
-int ft_get_file_data(int argc, char **argv, t_args *t_args)
+int	ft_get_file_data(int argc, char **argv, t_args *t_args)
 {
 	if (ft_arg_cheker(argc, argv, t_args))
 		return (FAIL);
